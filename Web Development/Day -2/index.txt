@@ -1,0 +1,28 @@
+HTML ---
+The language for  creating web pages.
+
+HTTP ---
+The protocol for transfering data over the web.
+
+URL ---
+The address for locating on the web. This is address of web pages .
+
+WWW---
+WWW is the like the whole city and url is like a addressof the houses  every diffrent houses have diffrent URL.
+
+ HTTP ---
+Stand for Hyper Text Transformation Protocol  .
+
+HTTPS ---
+Stand for Hyper Text Transformation Protocol Security . 
+This means this is the secure website .
+
+HTML ---
+Is stand's for Hypyer Text Markup language  .
+Hyper Text -- Text with links that you can click means that is the clickable .
+Markup -- We can special notes.
+Also this is not any kind of Programming language .
+
+- Modern Html comes in the 2014 that is HTML5 that we are using .
+
+-- Google is reading  HTML to understand yur website and that is affect your SEO(Search Engine Optimization ).

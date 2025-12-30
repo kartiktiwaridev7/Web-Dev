@@ -1,0 +1,53 @@
+web - dev 
+
+Frontend ----
+      If You go in the any restaurent then the part that you are visiting is the or you are interacting is the frontend area .
+
+Bakckend ----
+        In the restaurent where all the chef is working is called backend , In web-dev the server-side of a web 
+application, focusing on the logic, databases, and infrastructure that power the website's functionality behind the scenes.
+
+Acttuly we called it's brain of our website.
+
+DataBase -
+Is the palce where all web-site and User related data we can store .
+
+Front-End Development -----
+
+HTML  - Structure .
+CSS - Design .
+Java Script - All the logic .
+
+Back-kend Development ---
+Python -- Django/ Flask
+Java 
+Java Script -- Node js 
+PHP 
+Ruby 
+
+
+DataBase ---
+PostgreSQL 
+MangoDB
+SQL
+MYSQL 
+
+In 1989 "Tim Burner Li" created three thing's for 1) HTML 2) URL 3) HTTP .
+
+Client-Server Model----
+
+How Does the Client-Server Model Work?
+Client: A client is any device or software that initiates communication by requesting data or services from a server. Common client applications include:
+
+Web browsers (e.g., Chrome, Firefox)
+
+Email apps (e.g., Gmail, Outlook)
+
+Server: A server is a powerful systems that listens for and responds to client requests by delivering data or performing tasks. Servers often handle multiple simultaneous client requests. Common server applications include:
+
+Web Servers (e.g., Apache, Nginx)
+Email Servers
+Database servers
+
+Client -- Ask 
+Server -- Answer.
