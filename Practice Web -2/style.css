@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#box1{
+    height: 150px;
+    width: 150px;
+    background-color: brown;
+
+}
+#box2{
+    height: 150px;
+    width: 150px;
+    background-color: yellow;
+
+}
+#box3{
+    height: 150px;
+    width: 150px;
+    background-color: gray;
+
+
+}
+#box4{
+    height: 150px;
+    width: 150px;
+    background-color: green;
+}
