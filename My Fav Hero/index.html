@@ -3,22 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Fav Hero </title>
+    <title>Kid Krrish | The Legacy</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="main">
-        <div id="nav">
-    <div id="second">
-        <ul class="menu">
-            <li>Home</li>
-            <li>Menu</li>
-            <li>History</li>
-            <li>Settings</li>
-        </ul>
+
+    <header id="nav-container">
+        <div class="logo">KID<span>KRRISH</span></div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#story">The Saga</a></li>
+                <li><a href="#characters">Characters</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1></h1> <p>A sundial watch. An alien friend. A destiny to protect the world.</p>
+            
+            <div class="hero-buttons">
+                <a href="#story" class="cta-button">Uncover the Story</a>
+                <button id="open-trailer" class="cta-button secondary-btn">Watch Trailer</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="story">
+        <div class="section-header">
+            <h2>The Four Chapters</h2>
+            <p>Dive into the epic journey of Krishna and Jadoo, divided into four legendary arcs.</p>
+        </div>
+
+        <div class="grid-container">
+            
+            <article class="card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="chapter-number">01</span>
+                    <h3>The Discovery</h3>
+                    <p>Kid Krrish follows young Krishna, who discovers his father's alien-tech sundial watch and realizes he has superpowers. After defending himself against the evil Dr. Par, his journey begins.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="chapter-number">02</span>
+                    <h3>The Alien Bond</h3>
+                    <p>Relocated to the mountains of Himachal by his grandmother, Krishna crosses paths with the alien Jadoo. Together, they form an unbreakable bond and begin to understand their true potential.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="chapter-number">03</span>
+                    <h3>Rise of Shadows</h3>
+                    <p>Dr. Par's sinister forces close in, threatening the peace. Krishna must learn to harness his newfound abilities, combining his strength with Jadoo's extraterrestrial powers.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <span class="chapter-number">04</span>
+                    <h3>Earth's Protector</h3>
+                    <p>The final showdown. With the fate of the world hanging in the balance, Krishna dons the mask to become the ultimate symbol of hope and the line of defense against darkness.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="characters">
+        <div class="section-header">
+            <h2>Character Files</h2>
+            <p>Select a profile to access classified data.</p>
+        </div>
+        
+        <div class="roster-container">
+            <div id="char-buttons" class="button-group"></div>
+
+            <div id="char-display" class="display-card">
+                <h3 id="display-name">Select a Character</h3>
+                <p id="display-role" class="role-badge">Status: Unknown</p>
+                <p id="display-desc">Awaiting selection...</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="trailer-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">&times;</button>
+            <div class="video-container">
+                <iframe id="trailer-video" src="https://www.youtube.com/embed/MCCVVgtI5xU?enablejsapi=1" title="Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
-</div>
-    </div>
-    
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,54 +1,432 @@
+/* --- CSS VARIABLES FOR THEMING --- */
+:root {
+    --primary-color: #00d2ff;
+    --primary-glow: rgba(0, 210, 255, 0.6);
+    --bg-dark: #0f1016;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --text-main: #ffffff;
+    --text-muted: #a0a5b5;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* --- RESET & BASE STYLES --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
 }
 
-#main {
-  height: 100%;
-  width: 100%;
-  background-image: url("My Fav Hero Krish.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
-/* NAV BAR */
-#nav {
-    height: 60px;
+/* --- NAVIGATION (GLASSMORPHISM) --- */
+#nav-container {
+    position: fixed;
+    top: 0;
     width: 100%;
-    /* background-color: rgba(0,0,0,0.6); */
+    height: 70px;
     display: flex;
-    justify-content: flex-end;   /* pushes brown bar to right */
+    justify-content: space-between;
     align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+    background: rgba(15, 16, 22, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-#second {
-    height: 100%;
-    width: 50%;
-    /* background-color: brown; */
-    display: flex;
-    justify-content: center;   /* centers content horizontally */
-    align-items: center;       /* centers content vertically */
-    /* color: wheat; */
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
+
+.logo span {
+    color: var(--primary-color);
+}
+
 .menu {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;   /* important */
-    color: yellow;
+    gap: 2rem;
 }
-.menu:hover{
-    cursor: pointer; /* Changes the cursor to a hand icon */
-    /* color: yellowgreen; */
-  transition: background-color 0.3s;
+
+.menu li a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* --- HERO SECTION --- */
+#hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-image: url("My Fav Hero Krish.jpg"); /* Keep your image in the same folder */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(15,16,22,0.3) 0%, rgba(15,16,22,1) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    min-height: 80px; /* Prevents layout jump while typing */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px transparent;
+}
+
+.cta-button:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* --- STORY SECTION & GRID --- */
+#story {
+    padding: 100px 5%;
+    background-color: var(--bg-dark);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- CARD DESIGN & ANIMATIONS --- */
+.card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    /* Animation Start State */
+    opacity: 0; 
+    transform: translateY(50px); 
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out, border-color 0.4s ease;
+}
+
+/* Class added by JavaScript to fade the card in */
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.chapter-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transition: color 0.4s ease;
+}
+
+.card:hover .chapter-number {
+    color: var(--primary-glow);
+}
+
+.card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    color: white;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+/* ==========================================
+   CHARACTER ROSTER STYLES
+   ========================================== */
+#characters {
+    padding: 80px 5%;
+    background-color: #0a0b10; /* Slightly darker than main bg for contrast */
+}
+
+.roster-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.char-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.char-btn:hover {
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.char-btn.active {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.display-card {
+    background: rgba(0, 210, 255, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 40px;
+    border-radius: 0 10px 10px 0;
+    min-height: 200px;
+    transition: opacity 0.3s ease;
+}
+
+/* A brief animation class for when the data changes */
+.fade-in-text {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+#display-name {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.role-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+#display-desc {
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+/* ==========================================
+   HERO BUTTONS & MODAL STYLES
+   ========================================== */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    background: white;
+    color: var(--bg-dark);
+    border-color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* The Modal Background (Dimmed Screen) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none; /* Prevents clicking when hidden */
+    transition: opacity 0.4s ease;
+}
+
+/* Class added by JS to show the modal */
+.modal.show-modal {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+/* The Video Box */
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    background: black;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0 0 30px var(--primary-glow);
+    z-index: 2001;
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+.modal.show-modal .modal-content {
+    transform: scale(1);
+}
+
+/* Aspect Ratio trick for responsive iframes */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
 }
