@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About the Series — Ben 10</title>
+  <title>About the Creator — Ben 10</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -98,74 +98,110 @@
 
     /* ── CONTENT ── */
     main {
-      max-width: 720px;
+      max-width: 640px;
       margin: 0 auto;
       padding: 3rem 2rem;
     }
 
-    .lead {
-      font-size: 1.1rem;
-      color: var(--text);
-      line-height: 1.75;
+    /* ── CREATOR CARD ── */
+    .creator-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
       margin-bottom: 2rem;
     }
 
-    p {
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-      font-size: 0.975rem;
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(0, 230, 118, 0.12);
+      border: 2px solid rgba(0, 230, 118, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--green);
+      flex-shrink: 0;
     }
 
-    /* ── HIGHLIGHT CARD ── */
-    .highlight {
+    .creator-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .creator-role {
+      font-size: 0.8rem;
+      color: var(--green);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+
+    .creator-bio {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── WHY BEN 10 ── */
+    .why-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-left: 3px solid var(--green);
       border-radius: 0 12px 12px 0;
       padding: 1.25rem 1.5rem;
-      margin: 2rem 0;
+      margin-bottom: 2rem;
     }
 
-    .highlight p {
-      margin: 0;
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    /* ── FACT CARDS ── */
-    h2 {
-      font-family: 'Orbitron', monospace;
-      font-size: 1.1rem;
-      color: var(--white);
-      margin: 2.5rem 0 1rem;
-      letter-spacing: -0.01em;
-    }
-
-    .facts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .fact-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1.1rem 1.25rem;
-    }
-
-    .fact-label {
+    .why-label {
       font-size: 0.72rem;
       font-weight: 600;
       color: var(--green);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
     }
 
-    .fact-value {
-      font-size: 0.9rem;
+    .why-card p {
       color: var(--text);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* ── SKILLS ── */
+    h2 {
+      font-family: 'Orbitron', monospace;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .skill-tag {
+      background: rgba(0, 230, 118, 0.08);
+      border: 1px solid rgba(0, 230, 118, 0.2);
+      border-radius: 100px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.8rem;
+      color: var(--green);
       font-weight: 500;
     }
 
@@ -178,7 +214,6 @@
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 500;
-      margin-top: 2rem;
       padding: 0.5rem 0;
       border-bottom: 1px solid transparent;
       transition: border-color 0.2s;
@@ -199,6 +234,7 @@
 
     @media (max-width: 600px) {
       .top-bar { padding: 1rem; }
+      .creator-card { flex-direction: column; gap: 1rem; }
       main { padding: 2rem 1.25rem; }
     }
   </style>
@@ -209,54 +245,41 @@
     <a class="logo" href="index.html">BEN&nbsp;10</a>
     <nav>
       <ul>
-        <li><a href="about.html" class="active">About the series</a></li>
-        <li><a href="about2.html">About the creator</a></li>
+        <li><a href="about.html">About the series</a></li>
+        <li><a href="about2.html" class="active">About the creator</a></li>
       </ul>
     </nav>
   </div>
 
   <div class="page-header">
-    <p class="eyebrow">Series</p>
-    <h1>About This Website</h1>
+    <p class="eyebrow">Creator</p>
+    <h1>About the Creator</h1>
   </div>
 
   <main>
 
-    <p class="lead">
-      This website is a fan-made project inspired by the popular animated series <strong style="color: var(--white);">Ben 10</strong>. It was created to share information, videos, and fun content related to Ben Tennyson and his amazing alien transformations.
-    </p>
-
-    <div class="highlight">
-      <p>Ben 10 follows the story of a young hero who discovers the Omnitrix — a powerful watch that lets him transform into different aliens and protect the world from evil.</p>
+    <div class="creator-card">
+      <div class="avatar">K</div>
+      <div>
+        <div class="creator-name">Kartik</div>
+        <div class="creator-role">Web Developer &amp; Ben 10 Fan</div>
+        <p class="creator-bio">
+          I created this website as a learning project to improve my skills in web development. I chose Ben 10 as the theme because it is one of my favorite animated series.
+        </p>
+      </div>
     </div>
 
-    <p>
-      The series first aired in 2005 and became one of Cartoon Network's most beloved franchises, spanning multiple shows, movies, and a reboot that introduced the adventures to a whole new generation of fans.
-    </p>
+    <div class="why-card">
+      <div class="why-label">Why Ben 10?</div>
+      <p>Ben 10 was a huge part of growing up — the Omnitrix, the aliens, the adventures. Building a fan site around it made learning web development much more fun.</p>
+    </div>
 
-    <p>
-      This site was created for learning and educational purposes, and to celebrate the creativity and excitement of the Ben 10 universe.
-    </p>
-
-    <h2>Series at a glance</h2>
-
-    <div class="facts-grid">
-      <div class="fact-card">
-        <div class="fact-label">Original series</div>
-        <div class="fact-value">Ben 10 (2005)</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-label">Main character</div>
-        <div class="fact-value">Ben Tennyson</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-label">Key device</div>
-        <div class="fact-value">The Omnitrix</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-label">Network</div>
-        <div class="fact-value">Cartoon Network</div>
-      </div>
+    <h2>Built with</h2>
+    <div class="skills-list">
+      <span class="skill-tag">HTML</span>
+      <span class="skill-tag">CSS</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">Passion for Ben 10</span>
     </div>
 
     <a class="back-link" href="index.html">← Back to home</a>

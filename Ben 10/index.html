@@ -1,74 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Ben 10 Web Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Ben 10 Web Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:    #00e676;
+      --green-dark: #00c853;
+      --green-dim: #1b5e20;
+      --black:    #0a0a0a;
+      --card-bg:  #111111;
+      --card-border: #1e3a1e;
+      --text:     #e8f5e9;
+      --muted:    #8fac92;
+      --white:    #ffffff;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(160deg, #0d1f0d 0%, #050f05 60%, #0a0a0a 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 0 3rem;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid #1a2e1a;
+    }
+
+    .logo {
+      font-family: 'Orbitron', monospace;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    nav ul li a:hover {
+      color: var(--green);
+      border-color: var(--green-dim);
+      background: rgba(0, 230, 118, 0.06);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .omnitrix-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .omnitrix-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    h1 {
+      font-family: 'Orbitron', monospace;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* ── ALIEN STATS ── */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      max-width: 520px;
+      margin: 0 auto;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 1rem;
+      text-align: center;
+      border-right: 1px solid var(--card-border);
+      background: var(--card-bg);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--green);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── VIDEO GRID ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .video-card:hover {
+      border-color: var(--green-dim);
+      transform: translateY(-2px);
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 200px;
+      display: block;
+      border: none;
+    }
+
+    figcaption {
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── ALIENS GRID ── */
+    .aliens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .alien-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .alien-card:hover {
+      border-color: var(--green-dim);
+      background: #131f13;
+    }
+
+    .alien-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(0, 230, 118, 0.12);
+      border: 1px solid rgba(0, 230, 118, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .alien-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--green);
+    }
+
+    .alien-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .alien-power {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer p + p {
+      margin-top: 0.25rem;
+      opacity: 0.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .top-bar { padding: 1rem; }
+      .hero { padding: 2.5rem 1.25rem 1.5rem; }
+      main { padding: 2rem 1.25rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>The Ben 10 Web Page</h1>
-        <h3>Discover Ben Tennyson and the Power of the Omnitrix</h3>
+  <header>
+    <div class="top-bar">
+      <a class="logo" href="index.html">BEN&nbsp;10</a>
+      <nav>
+        <ul>
+          <li><a href="about.html">About the series</a></li>
+          <li><a href="about2.html">About the creator</a></li>
+        </ul>
+      </nav>
+    </div>
 
-        <nav>
-            <ul>
-                <li><a href="about.html" target="_blank">About the Series</a></li>
-                <li><a href="about2.html"target="_blank">About the Creator</a></li>
-            </ul>
-        </nav>
+    <div class="hero">
+      <div class="omnitrix-badge">
+        <span class="omnitrix-dot"></span>
+        Omnitrix Online
+      </div>
+      <h1>The <span>Ben 10</span><br>Web Page</h1>
+      <p class="hero-sub">Explore videos, learn about the series, and enjoy content inspired by the world of Ben Tennyson.</p>
 
-        <p>
-            Welcome to this fan-made Ben 10 website! Explore videos, learn about
-            the series, and enjoy content inspired by the world of Ben Tennyson.
-        </p>
-    </header>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Original aliens</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Series</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Adventures</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <main>
+  <main>
 
-        <section>
-            <h2>Ben 10 Videos</h2>
+    <section>
+      <p class="section-eyebrow">Watch</p>
+      <h2>Ben 10 Videos</h2>
+      <div class="video-grid">
+        <figure class="video-card">
+          <iframe
+            src="https://www.youtube.com/embed/146wAzknjmM"
+            title="Ben 10 Classic Theme"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <figcaption>Ben 10 Classic Theme</figcaption>
+        </figure>
+        <figure class="video-card">
+          <iframe
+            src="https://www.youtube.com/embed/BGtFljqEHNE"
+            title="Ben 10 Action Scene"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <figcaption>Ben 10 Action Scene</figcaption>
+        </figure>
+      </div>
+    </section>
 
-            <figure>
-                <iframe width="560" height="315"
-                    src="https://www.youtube.com/embed/146wAzknjmM"
-                    title="Ben 10 Video"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-                <figcaption>Ben 10 Classic Theme</figcaption>
-            </figure>
+    <section>
+      <p class="section-eyebrow">Roster</p>
+      <h2>Popular Ben 10 Aliens</h2>
+      <div class="aliens-grid">
 
-            <figure>
-                <iframe width="560" height="315"
-                    src="https://www.youtube.com/embed/BGtFljqEHNE"
-                    title="Ben 10 Video"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-                <figcaption>Ben 10 Action Scene</figcaption>
-            </figure>
+        <div class="alien-card">
+          <div class="alien-icon">
+            <!-- fire icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C9 6 6 8 7 13c.5 2.5 2.5 4 5 4s4.5-1.5 5-4c1-5-2-7-5-11zm0 14a2 2 0 0 1-2-2c0-2 2-4 2-4s2 2 2 4a2 2 0 0 1-2 2z"/></svg>
+          </div>
+          <div>
+            <div class="alien-name">Heatblast</div>
+            <div class="alien-power">Fire & heat</div>
+          </div>
+        </div>
 
-        </section>
+        <div class="alien-card">
+          <div class="alien-icon">
+            <!-- fist icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 8h-1V5a2 2 0 0 0-4 0v1h-2V4a2 2 0 0 0-4 0v3H6a2 2 0 0 0-2 2v2a7 7 0 0 0 7 7h2a7 7 0 0 0 7-7V10a2 2 0 0 0-2-2z"/></svg>
+          </div>
+          <div>
+            <div class="alien-name">Four Arms</div>
+            <div class="alien-power">Super strength</div>
+          </div>
+        </div>
 
-        <section>
-            <h2>Popular Ben 10 Aliens</h2>
-            <ul>
-                <li>Heatblast</li>
-                <li>Four Arms</li>
-                <li>XLR8</li>
-                <li>Diamondhead</li>
-            </ul>
-        </section>
+        <div class="alien-card">
+          <div class="alien-icon">
+            <!-- lightning icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+          </div>
+          <div>
+            <div class="alien-name">XLR8</div>
+            <div class="alien-power">Super speed</div>
+          </div>
+        </div>
 
-    </main>
+        <div class="alien-card">
+          <div class="alien-icon">
+            <!-- diamond icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l5 5-5 15-5-15z"/><path d="M3 9l4-2 5 15L3 9zm18 0l-4-2-5 15L21 9z" opacity="0.5"/></svg>
+          </div>
+          <div>
+            <div class="alien-name">Diamondhead</div>
+            <div class="alien-power">Crystal armor</div>
+          </div>
+        </div>
 
-    <footer>
-        <p>© 2026 Ben 10 Fan Website. All rights reserved.</p>
-        <p>This is a fan-made website created for educational purposes only.</p>
-    </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Ben 10 Fan Website. All rights reserved.</p>
+    <p>Fan-made site created for educational purposes only. Ben 10 is a trademark of Cartoon Network.</p>
+  </footer>
 
 </body>
 </html>
